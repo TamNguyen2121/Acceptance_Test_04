@@ -1,0 +1,22 @@
+
+# actor: AcceptanceTester
+# modules:
+#     enabled:
+#         - PhpBrowser:
+#             url: 'http://178.128.88.120:88/login'
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: 'http://178.128.88.120:88/login'
+            window_size: false 
+            port: 9515
+            browser: chrome
+            wait: 5
+# add Codeception\Step\Retry trait to AcceptanceTester to enable retries
+step_decorators:
+    - Codeception\Step\ConditionalAssertion
+    - Codeception\Step\TryTo
+    - Codeception\Step\Retry
+
